@@ -174,3 +174,38 @@ console.log("--- Star Triangle ---");
 for (let i = 1; i <= 5; i++) {
     console.log("*".repeat(i));
 }
+// ===== MINI-PROJECT: CALCULATOR =====
+function addCalc(a, b) { return a + b; }
+function subtract(a, b) { return a - b; }
+function multiplyCalc(a, b) { return a * b; }
+function divideCalc(a, b) {
+    if (b === 0) return "Error: Cannot divide by zero";
+    return a / b;
+}
+function modulus(a, b) {
+    if (b === 0) return "Error: Cannot divide by zero";
+    return a % b;
+}
+function power(a, b) { return a ** b; }
+
+function calculate(num1, operator, num2) {
+    switch (operator) {
+        case "+": return addCalc(num1, num2);
+        case "-": return subtract(num1, num2);
+        case "*": return multiplyCalc(num1, num2);
+        case "/": return divideCalc(num1, num2);
+        case "%": return modulus(num1, num2);
+        case "**": return power(num1, num2);
+        default: return "Invalid operator";
+    }
+}
+
+// Tests
+console.log("--- Calculator Tests ---");
+console.log(calculate(10, "+", 5));   
+console.log(calculate(10, "-", 5));   
+console.log(calculate(10, "*", 5));   
+console.log(calculate(10, "/", 5));   
+console.log(calculate(10, "/", 0));   
+console.log(calculate(10, "%", 3));   
+console.log(calculate(2, "**", 8));   
