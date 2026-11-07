@@ -431,3 +431,59 @@ console.log(gradeTracker.getSubjectAverage("math"));
 console.log(gradeTracker.getTopStudent());
 console.log(gradeTracker.getStrugglingStudents());
 console.log(gradeTracker.generateReportCard("Kofi"));
+
+// ===== DAY 1: FIZZBUZZ =====
+console.log("--- FizzBuzz ---");
+for (let i = 1; i <= 100; i++) {
+    if (i % 15 === 0) console.log("FizzBuzz");
+    else if (i % 3 === 0) console.log("Fizz");
+    else if (i % 5 === 0) console.log("Buzz");
+    else console.log(i);
+}
+
+// ===== DAY 2: REVERSE STRING =====
+function reverseMethod(str) {
+    return str.split("").reverse().join("");
+}
+function reverseLoop(str) {
+    let result = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
+    }
+    return result;
+}
+console.log(reverseMethod("hello"));
+console.log(reverseLoop("hello"));
+
+// ===== DAY 3: LARGEST NUMBER =====
+function largestLoop(arr) {
+    let max = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) max = arr[i];
+    }
+    return max;
+}
+function largestReduce(arr) {
+    return arr.reduce((max, n) => n > max ? n : max, arr[0]);
+}
+console.log(largestLoop([3, 7, 1, 9, 4]));
+console.log(largestReduce([3, 7, 1, 9, 4]));
+
+// ===== DAY 4: REMOVE DUPLICATES =====
+function dedupeSet(arr) {
+    return [...new Set(arr)];
+}
+function dedupeFilter(arr) {
+    return arr.filter((v, i) => arr.indexOf(v) === i);
+}
+console.log(dedupeSet([1, 2, 2, 3, 4, 4, 5]));
+console.log(dedupeFilter([1, 2, 2, 3, 4, 4, 5]));
+
+// ===== DAY 5: PALINDROME =====
+function isPalindrome(str) {
+    const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+    return cleaned === cleaned.split("").reverse().join("");
+}
+console.log(isPalindrome("racecar"));  // true
+console.log(isPalindrome("hello"));    // false
+console.log(isPalindrome("A man a plan a canal Panama"));  // true
