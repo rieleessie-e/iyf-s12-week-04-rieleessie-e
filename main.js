@@ -318,3 +318,38 @@ console.log("CS majors:", csMajors.map(s => s.name));
 console.log("Sorted:", sortedByGrade.map(s => `${s.name}:${s.grade}`));
 console.log("Any > 90?", hasTopStudent);
 console.log("All passing?", allPassing);
+
+// ===== TASK 8.4: JSON =====
+const json = '{"name":"Wanjiku","grades":{"math":88,"english":92}}';
+const student = JSON.parse(json);
+console.log(student.grades.math);
+
+const backToText = JSON.stringify(student, null, 2);
+console.log(typeof backToText);
+
+// Exercise
+const postsJson = '[{"id":1,"title":"Welcome","likes":12,"published":true},{"id":2,"title":"Draft ideas","likes":0,"published":false},{"id":3,"title":"Week 4 recap","likes":30,"published":true}]';
+
+// 1. Parse
+const posts = JSON.parse(postsJson);
+
+// 2. Filter published
+const published = posts.filter(p => p.published);
+
+// 3. Sort by likes desc
+const sortedPosts = [...published].sort((a, b) => b.likes - a.likes);
+
+// 4. Map to strings
+const postStrings = sortedPosts.map(p => `${p.title} (${p.likes} likes)`);
+console.log(postStrings);
+
+// 5. Stringify back
+const backToJson = JSON.stringify(sortedPosts, null, 2);
+console.log(backToJson);
+
+// try/catch demo
+try {
+    JSON.parse("not valid json");
+} catch (err) {
+    console.log("Caught error:", err.name);
+}
