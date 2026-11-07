@@ -252,3 +252,42 @@ console.log("First > 10:", firstOver10);
 // 4. Product of all
 const product = testArr.reduce((p, n) => p * n, 1);
 console.log("Product:", product);
+
+// ===== TASK 8.2: OBJECTS =====
+const person = {
+    firstName: "Blessing",          
+    lastName: "Wambui",
+    age: 20,
+    isStudent: true,
+    hobbies: ["reading", "gaming"],
+    address: {
+        city: "YourCity",
+        country: "YourCountry"
+    }
+};
+
+console.log(person.firstName);
+console.log(person["lastName"]);
+console.log(person.address.city);
+
+person.age = 21;
+person.phone = "1234567890";
+delete person.isStudent;
+
+// Object methods
+const calcObj = {
+    add: function(a, b) { return a + b; },
+    subtract(a, b) { return a - b; },
+    multiply: (a, b) => a * b
+};
+console.log(calcObj.add(5, 3));
+
+// Iteration
+const scores = { math: 95, english: 88, science: 92 };
+console.log(Object.keys(scores));
+console.log(Object.values(scores));
+console.log(Object.entries(scores));
+
+for (const [subject, score] of Object.entries(scores)) {
+    console.log(`${subject}: ${score}`);
+}
