@@ -291,3 +291,30 @@ console.log(Object.entries(scores));
 for (const [subject, score] of Object.entries(scores)) {
     console.log(`${subject}: ${score}`);
 }
+
+// ===== TASK 8.3: ARRAY OF OBJECTS =====
+const students = [
+    { name: "Kofi", age: 22, grade: 85, major: "CS" },
+    { name: "Zara", age: 20, grade: 72, major: "Math" },
+    { name: "Tunde", age: 23, grade: 90, major: "CS" },
+    { name: "Amani", age: 21, grade: 88, major: "Physics" },
+    { name: "Nia", age: 22, grade: 95, major: "CS" }
+];
+
+const names = students.map(s => s.name);
+const highAchievers = students.filter(s => s.grade > 80);
+const foundStudent = students.find(s => s.name === "Tunde");
+const avgGrade = students.reduce((sum, s) => sum + s.grade, 0) / students.length;
+const csMajors = students.filter(s => s.major === "CS");
+const sortedByGrade = [...students].sort((a, b) => b.grade - a.grade);
+const hasTopStudent = students.some(s => s.grade > 90);
+const allPassing = students.every(s => s.grade >= 60);
+
+console.log("Names:", names);
+console.log("High achievers:", highAchievers.map(s => s.name));
+console.log("Found:", foundStudent);
+console.log("Average grade:", avgGrade);
+console.log("CS majors:", csMajors.map(s => s.name));
+console.log("Sorted:", sortedByGrade.map(s => `${s.name}:${s.grade}`));
+console.log("Any > 90?", hasTopStudent);
+console.log("All passing?", allPassing);
