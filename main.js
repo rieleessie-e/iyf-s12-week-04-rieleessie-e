@@ -208,4 +208,47 @@ console.log(calculate(10, "*", 5));
 console.log(calculate(10, "/", 5));   
 console.log(calculate(10, "/", 0));   
 console.log(calculate(10, "%", 3));   
-console.log(calculate(2, "**", 8));   
+console.log(calculate(2, "**", 8)); 
+
+// ===== TASK 8.1: ARRAYS =====
+const fruits = ["apple", "banana", "orange"];
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(fruits[0]);
+console.log(fruits.length);
+
+fruits.push("grape");
+fruits.unshift("mango");
+fruits.pop();
+fruits.shift();
+
+// Array methods
+const doubled = numbers.map(n => n * 2);
+const evens = numbers.filter(n => n % 2 === 0);
+const firstEven = numbers.find(n => n % 2 === 0);
+const sum = numbers.reduce((t, n) => t + n, 0);
+
+console.log("Doubled:", doubled);
+console.log("Evens:", evens);
+console.log("First even:", firstEven);
+console.log("Sum:", sum);
+console.log("Includes 3?", numbers.includes(3));
+
+// Build tasks
+const testArr = [1, -2, 3, -4, 5, 12, 15];
+
+// 1. Double all
+const allDoubled = testArr.map(n => n * 2);
+console.log("All doubled:", allDoubled);
+
+// 2. Filter negatives
+const positives = testArr.filter(n => n >= 0);
+console.log("No negatives:", positives);
+
+// 3. First > 10
+const firstOver10 = testArr.find(n => n > 10);
+console.log("First > 10:", firstOver10);
+
+// 4. Product of all
+const product = testArr.reduce((p, n) => p * n, 1);
+console.log("Product:", product);
